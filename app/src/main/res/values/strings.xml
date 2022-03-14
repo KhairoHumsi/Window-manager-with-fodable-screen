@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">WindowManager with fodable screen</string>
+    <string name="total_bill">Total Bill</string>
+    <string name="discount">Discount</string>
+    <string name="pay">PAY</string>
+    <string name="note">Note</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="total_discount">Total Discount</string>
+    <string name="categories">Categories</string>
+    <string name="exist_warning">Item already exist!</string>
+    <string name="minimum_quantity">Item already in minimum quantity!</string>
+    <string name="quantity">Quantity: </string>
+    <string name="price">Price: </string>
+    <string name="clear_cart">Clear cart</string>
+    <array name="auto_size_text_sizes">
+        <item>@dimen/_6sdp</item>
+        <item>@dimen/_7sdp</item>
+        <item>@dimen/_8sdp</item>
+        <item>@dimen/_9sdp</item>
+        <item>@dimen/_10sdp</item>
+        <item>@dimen/_11sdp</item>
+        <item>@dimen/_12sdp</item>
+    </array>
+</resources>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="model"
+            type="com.khairo.windowmanagerwithfodablescreen.data.models.CartModel" />
+
+        <variable
+            name="listener"
+            type="com.khairo.windowmanagerwithfodablescreen.ui.CartAdapter.OnClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/_25sdp"
+        android:layout_gravity="center"
+        android:background="@color/white">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start|center_vertical"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:text='@{model.name}'
+            android:textColor="@color/dark_gray"
+            app:autoSizeTextType="uniform"
+            app:autoSizePresetSizes="@array/auto_size_text_sizes"
+            android:maxLines="2"
+            app:layout_constraintHorizontal_weight="25"
+            app:layout_constraintEnd_toStartOf="@id/actions_spacer"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@tools:sample/lorem/random" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/actions_spacer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintHorizontal_weight="25"
+            app:layout_constraintStart_toEndOf="@id/name"
+            app:layout_constraintEnd_toStartOf="@id/spacer"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/minus"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:maxHeight="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:background="@drawable/ic_circle_minus"
+                app:layout_constraintHorizontal_weight="15"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintStart_toStartOf="@+id/actions_spacer"
+                app:layout_constraintBottom_toBottomOf="@id/quantity"
+                app:layout_constraintEnd_toStartOf="@id/quantity"
+                app:layout_constraintTop_toTopOf="@id/quantity" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/quantity"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_19sdp"
+                android:gravity="center"
+                android:text='@{""+ model.count+ ""}'
+                app:autoSizeTextType="uniform"
+                app:autoSizePresetSizes="@array/auto_size_text_sizes"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_8ssp"
+                app:layout_constraintHorizontal_weight="25"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/minus"
+                app:layout_constraintEnd_toStartOf="@id/plus"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="5" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/plus"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:maxHeight="@dimen/_20sdp"
+                app:layout_constraintHorizontal_weight="15"
+                android:layout_marginEnd="@dimen/_4sdp"
+                app:layout_constraintDimensionRatio="1:1"
+                android:background="@drawable/ic_circle_plus"
+                app:layout_constraintBottom_toBottomOf="@id/quantity"
+                app:layout_constraintEnd_toEndOf="@+id/actions_spacer"
+                app:layout_constraintStart_toEndOf="@id/quantity"
+                app:layout_constraintTop_toTopOf="@id/quantity" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/spacer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintHorizontal_weight="25"
+            app:layout_constraintStart_toEndOf="@+id/actions_spacer"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/price"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:gravity="center"
+                android:text='@{""+ model.price * model.count+ " JOD"}'
+                android:textColor="@color/dark_gray"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintStart_toStartOf="parent"
+                app:autoSizePresetSizes="@array/auto_size_text_sizes"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/delete"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="54.46 JOD" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/delete"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:background="@color/red"
+                android:clipToPadding="false"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/delete_button"
+                    android:layout_width="@dimen/_9sdp"
+                    android:layout_height="@dimen/_13sdp"
+                    android:background="@drawable/ic_trash" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
