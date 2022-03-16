@@ -11,10 +11,9 @@ import com.khairo.windowmanagerwithfodablescreen.data.models.CategoriesModel
 import com.khairo.windowmanagerwithfodablescreen.data.models.ItemModel
 import com.khairo.windowmanagerwithfodablescreen.data.repositories.MainRepository
 import com.khairo.windowmanagerwithfodablescreen.data.utils.suspendToast
-import com.khairo.windowmanagerwithfodablescreen.data.utils.toast
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -32,20 +31,7 @@ class MainViewModel @Inject constructor(private val repository: MainRepository) 
         }
     }
 
-//    private val _cart: MutableStateFlow<List<CartModel>> = flow {
-//        emit(repository.getCart())
-//    }.flowOn(Dispatchers.IO) as MutableStateFlow<List<CartModel>>
-
-//    val cart: Flow<List<CartModel>> = _cart
-val cart: MutableStateFlow<List<CartModel>> = MutableStateFlow(emptyList())
-
-
-//    val cart = MutableLiveData<List<CartModel>>().apply {
-//        viewModelScope.launch(Dispatchers.IO) {
-//            postValue(repository.getCart())
-//            getBill()
-//        }
-//    }
+    val cart: MutableStateFlow<List<CartModel>> = MutableStateFlow(emptyList())
 
     val items = MutableLiveData<List<ItemModel>>()
 
@@ -95,7 +81,6 @@ val cart: MutableStateFlow<List<CartModel>> = MutableStateFlow(emptyList())
         viewModelScope.launch(Dispatchers.IO) {
             repository.decreaseItem(itemId = itemId) {
                 cart.emit(it)
-//                cart.postValue(repository.getCart())
                 getBill()
                 withContext(Dispatchers.Main) {
                     updated()
@@ -120,7 +105,6 @@ val cart: MutableStateFlow<List<CartModel>> = MutableStateFlow(emptyList())
         viewModelScope.launch(Dispatchers.IO) {
             repository.clearCart()
             cart.emit(ArrayList())
-//            cart.postValue(ArrayList())
             getBill()
         }
     }
@@ -128,7 +112,9 @@ val cart: MutableStateFlow<List<CartModel>> = MutableStateFlow(emptyList())
     private fun getBill() {
         viewModelScope.launch(Dispatchers.IO) {
             subTotal.set(repository.getSubTotalBill())
-            val bill = if ((subTotal.get()?: 0f) - (discount.get() ?: 0f) < 0) 0f else (subTotal.get()?: 0f) - (discount.get() ?: 0f)
+            val bill =
+                if ((subTotal.get() ?: 0f) - (discount.get() ?: 0f) < 0) 0f else (subTotal.get()
+                    ?: 0f) - (discount.get() ?: 0f)
             totalBill.set(bill)
         }
     }

@@ -73,10 +73,13 @@
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground"
                 android:gravity="center"
+                android:paddingStart="@dimen/_4sdp"
+                android:paddingEnd="@dimen/_4sdp"
                 android:text="@string/categories"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_12ssp"
                 android:textStyle="bold"
+                app:autoSizePresetSizes="@array/auto_size_text_categories"
+                app:autoSizeTextType="uniform"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -94,11 +97,14 @@
                 tools:listitem="@layout/category_item" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
+        <com.khairo.windowmanagerwithfodablescreen.data.utils.AutoFitRecyclerView
             android:id="@+id/item_recycler"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/gray"
+            android:clipToPadding="false"
+            android:columnWidth="@dimen/_50sdp"
+            android:numColumns="auto_fit"
             android:orientation="vertical"
             android:paddingTop="@dimen/_5sdp"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
@@ -107,7 +113,6 @@
             app:layout_constraintHorizontal_weight="40"
             app:layout_constraintStart_toEndOf="@id/categories_view"
             app:layout_constraintTop_toBottomOf="@id/bar"
-            app:spanCount="4"
             tools:listitem="@layout/items_item" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -115,11 +120,11 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/weird_blue"
-            app:layout_constraintHorizontal_weight="45"
-            app:layout_constraintTop_toBottomOf="@id/bar"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="45"
             app:layout_constraintStart_toEndOf="@id/item_recycler"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/bar">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/cart_recycler"
@@ -234,16 +239,15 @@
                 android:id="@+id/clear_cart"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/_25sdp"
-                android:layout_marginTop="@dimen/_4sdp"
-                android:layout_marginBottom="@dimen/_4sdp"
                 android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_4sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
                 android:background="@drawable/carve_red"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground"
                 android:gravity="center"
-                android:onClick="@{()->viewModel.clearCart()}"
                 android:text="@string/clear_cart"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_16ssp"
@@ -258,16 +262,15 @@
                 android:id="@+id/pay"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/_25sdp"
-                android:layout_marginTop="@dimen/_4sdp"
-                android:layout_marginBottom="@dimen/_4sdp"
                 android:layout_marginStart="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_4sdp"
                 android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
                 android:background="@drawable/carve_blue"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackground"
                 android:gravity="center"
-                android:onClick="@{()->viewModel.clearCart()}"
                 android:text="@string/pay"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_16ssp"
@@ -276,8 +279,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_weight="50"
                 app:layout_constraintStart_toEndOf="@id/clear_cart"
-                app:layout_constraintTop_toBottomOf="@id/bill_view"
-                tools:ignore="UnusedAttribute" />
+                app:layout_constraintTop_toBottomOf="@id/bill_view" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

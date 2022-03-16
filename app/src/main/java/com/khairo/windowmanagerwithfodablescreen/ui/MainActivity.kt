@@ -7,6 +7,7 @@ import androidx.lifecycle.lifecycleScope
 import com.khairo.windowmanagerwithfodablescreen.data.models.CartModel
 import com.khairo.windowmanagerwithfodablescreen.data.models.CategoriesModel
 import com.khairo.windowmanagerwithfodablescreen.data.models.ItemModel
+import com.khairo.windowmanagerwithfodablescreen.data.utils.MarginDecoration
 import com.khairo.windowmanagerwithfodablescreen.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
@@ -41,7 +42,16 @@ class MainActivity : AppCompatActivity(), ItemsAdapter.OnClickListener,
                     cart.collect { cartAdapter.submitList(it) }
                 }
             }
+
+            clearCart.setOnClickListener { clearAllCart() }
+
+            pay.setOnClickListener { clearAllCart() }
         }
+    }
+
+    private fun clearAllCart() {
+        mainViewModel.clearCart()
+        cartAdapter.submitList(null)
     }
 
     private fun ActivityMainBinding.initAdapters() {
@@ -51,6 +61,8 @@ class MainActivity : AppCompatActivity(), ItemsAdapter.OnClickListener,
 
             itemsAdapter = ItemsAdapter(this@MainActivity)
             itemRecycler.adapter = itemsAdapter
+            itemRecycler.addItemDecoration(MarginDecoration(this@MainActivity))
+            itemRecycler.setHasFixedSize(true)
 
             cartAdapter = CartAdapter(this@MainActivity)
             cartRecycler.adapter = cartAdapter

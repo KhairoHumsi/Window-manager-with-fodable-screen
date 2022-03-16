@@ -48,6 +48,7 @@ class CartAdapter(
         }
     }
 
+
     interface OnClickListener {
         fun removeItem(model: CartModel, position: Int)
         fun decreaseItem(itemId: Int, position: Int)

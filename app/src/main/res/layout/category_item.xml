@@ -18,31 +18,29 @@
 
     <FrameLayout
         android:id="@+id/main_item"
-        android:layout_width="@dimen/_70sdp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginStart="@dimen/_4sdp"
         android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
         android:background="@drawable/carve_white"
         android:clickable="true"
         android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
-        android:onClick="@{()-> listener.loadItems(model)}"
-        tools:ignore="UnusedAttribute">
+        android:onClick="@{()-> listener.loadItems(model)}">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/label"
-            android:layout_width="@dimen/_70sdp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:gravity="center"
             android:text='@{model.name}'
             android:textColor="@color/dark_blue"
-            android:textSize="@dimen/_10ssp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@id/image"
-            app:layout_constraintStart_toStartOf="@id/image"
-            app:layout_constraintTop_toBottomOf="@id/image"
+            app:autoSizePresetSizes="@array/auto_size_text_categories"
+            app:autoSizeTextType="uniform"
             tools:text="Mohammad khair" />
     </FrameLayout>
 </layout>

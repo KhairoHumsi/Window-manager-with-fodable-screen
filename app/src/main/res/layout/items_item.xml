@@ -19,15 +19,14 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/item"
         android:layout_width="@dimen/_50sdp"
-        android:layout_height="@dimen/_35sdp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="@dimen/_1sdp"
         android:background="@drawable/carve_white"
         android:clickable="true"
         android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
-        android:onClick="@{()-> listener.addItemToCart(model)}"
-        tools:ignore="UnusedAttribute">
+        android:onClick="@{()-> listener.addItemToCart(model)}">
 
         <View
             android:id="@+id/view"
@@ -54,11 +53,14 @@
             android:id="@+id/label"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/_11sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_4sdp"
             android:gravity="center"
+            android:maxLines="3"
             android:text='@{model.name}'
             android:textColor="@color/black"
-            android:textSize="@dimen/_8ssp"
+            app:autoSizePresetSizes="@array/auto_size_text_items"
+            app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

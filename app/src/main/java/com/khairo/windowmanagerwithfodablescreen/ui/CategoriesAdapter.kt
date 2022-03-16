@@ -8,40 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.khairo.windowmanagerwithfodablescreen.data.models.CategoriesModel
 import com.khairo.windowmanagerwithfodablescreen.databinding.CategoryItemBinding
 
-//class CategoriesAdapter(private val listener: OnClickListener) :
-//    BaseAdapter<CategoriesModel, BaseViewHolder<CategoriesModel>>() {
-//
-//    override fun onCreateViewHolder(
-//        parent: ViewGroup,
-//        viewType: Int
-//    ): BaseViewHolder<CategoriesModel> =
-//        ViewHolder(CategoryItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
-//
-//    override fun onBindViewHolder(holder: BaseViewHolder<CategoriesModel>, position: Int) {
-//        when (holder) {
-//            is ViewHolder -> holder.bind(getRow(position), position)
-//
-//            else -> throw IllegalArgumentException()
-//        }
-//    }
-//
-//    inner class ViewHolder(private var binding: CategoryItemBinding) :
-//        ViewHolders(binding = binding) {
-//        override fun bind(model: CategoriesModel, position: Int) {
-//            binding.let {
-//                it.model = model
-//                it.listener = listener
-//                it.executePendingBindings()
-//            }
-//        }
-//    }
-//
-//    interface OnClickListener {
-//        fun loadItems(model: CategoriesModel)
-//    }
-//}
-
-
 class CategoriesAdapter(
     private val listener: OnClickListener
 ) : ListAdapter<CategoriesModel, CategoriesAdapter.ViewHolder>(CategoriesDiffCallBack) {

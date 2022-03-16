@@ -21,4 +21,18 @@
         <item>@dimen/_11sdp</item>
         <item>@dimen/_12sdp</item>
     </array>
+    <array name="auto_size_text_items">
+        <item>@dimen/_6sdp</item>
+        <item>@dimen/_7sdp</item>
+        <item>@dimen/_8sdp</item>
+    </array>
+    <array name="auto_size_text_categories">
+        <item>@dimen/_6sdp</item>
+        <item>@dimen/_7sdp</item>
+        <item>@dimen/_8sdp</item>
+        <item>@dimen/_9sdp</item>
+        <item>@dimen/_10sdp</item>
+        <item>@dimen/_11sdp</item>
+        <item>@dimen/_12sdp</item>
+    </array>
 </resources>

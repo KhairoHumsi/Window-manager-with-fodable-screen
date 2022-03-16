@@ -5,7 +5,6 @@ import android.view.View
 import android.widget.Toast
 import androidx.annotation.StringRes
 import com.google.android.material.snackbar.Snackbar
-import com.khairo.windowmanagerwithfodablescreen.common.App
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import timber.log.Timber

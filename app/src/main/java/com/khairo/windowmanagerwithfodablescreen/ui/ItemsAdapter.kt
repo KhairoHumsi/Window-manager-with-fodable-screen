@@ -8,36 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.khairo.windowmanagerwithfodablescreen.data.models.ItemModel
 import com.khairo.windowmanagerwithfodablescreen.databinding.ItemsItemBinding
 
-//class ItemsAdapter(private val listener: OnClickListener) :
-//    BaseAdapter<ItemModel, BaseViewHolder<ItemModel>>() {
-//
-//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<ItemModel> =
-//        ViewHolder(ItemsItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
-//
-//    override fun onBindViewHolder(holder: BaseViewHolder<ItemModel>, position: Int) {
-//
-//        when (holder) {
-//            is ViewHolder -> holder.bind(getRow(position), position)
-//
-//            else -> throw IllegalArgumentException()
-//        }
-//    }
-//
-//    inner class ViewHolder(private var binding: ItemsItemBinding) : ViewHolders(binding = binding) {
-//        override fun bind(model: ItemModel, position: Int) {
-//            binding.let {
-//                it.model = model
-//                it.listener = listener
-//                it.executePendingBindings()
-//            }
-//        }
-//    }
-//
-//    interface OnClickListener {
-//        fun addItemToCart(model: ItemModel)
-//    }
-//}
-
 class ItemsAdapter(
     private val listener: OnClickListener
 ) : ListAdapter<ItemModel, ItemsAdapter.ViewHolder>(ItemDiffCallBack()) {
