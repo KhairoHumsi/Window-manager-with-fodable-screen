@@ -45,7 +45,7 @@ dependencies {
     ext.timber = "4.7.1"
     ext.hilt_version = "2.39.1"
     ext.circleimageview_version = "3.1.0"
-
+    ext.windowmanager_version = "1.0.0"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
@@ -73,4 +73,8 @@ dependencies {
 
     //circleImage
     implementation "de.hdodenhof:circleimageview:$circleimageview_version"
+
+    //window
+    implementation "androidx.window:window:$windowmanager_version"
+    androidTestImplementation "androidx.window:window-testing:$windowmanager_version"
 }
