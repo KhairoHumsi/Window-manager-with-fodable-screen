@@ -2,7 +2,7 @@
 
 # Window-manager-with-fodable-screen
 
-This repo is an example of a complix design, and how to handle it with the fodable devices using Jetpack Window Manager library.
+This repo is an example of a complex design, and how to handle it with the foldable devices using Jetpack Window Manager library.
 
 
 ## ✨ Supporting
