@@ -111,17 +111,40 @@ class MainActivity : AppCompatActivity(), ItemsAdapter.OnClickListener,
 
             if (foldingFeature.orientation == FoldingFeature.Orientation.VERTICAL) {
                 set.setMargin(R.id.folding_feature, ConstraintSet.START, rect.left)
-//                set.connect(
-//                    R.id.layout_change, ConstraintSet.END,
-//                    R.id.folding_feature, ConstraintSet.START, 0
-//                )
+                // item_recycler
+                set.connect(
+                    R.id.item_recycler, ConstraintSet.END,
+                    R.id.folding_feature, ConstraintSet.START, 0
+                )
+
+                // cart_view
+                set.connect(
+                    R.id.cart_view, ConstraintSet.START,
+                    R.id.folding_feature, ConstraintSet.END, 0
+                )
             } else {
                 // FoldingFeature is Horizontal
                 set.setMargin(R.id.folding_feature, ConstraintSet.TOP, rect.top)
-//                set.connect(
-//                    R.id.layout_change, ConstraintSet.TOP,
-//                    R.id.folding_feature, ConstraintSet.BOTTOM, 0
-//                )
+
+                // item_recycler
+                set.connect(
+                    R.id.item_recycler, ConstraintSet.END,
+                    R.id.folding_feature, ConstraintSet.END, 0
+                )
+                set.connect(
+                    R.id.item_recycler, ConstraintSet.BOTTOM,
+                    R.id.folding_feature, ConstraintSet.TOP, 0
+                )
+
+                // cart_view
+                set.connect(
+                    R.id.cart_view, ConstraintSet.START,
+                    R.id.folding_feature, ConstraintSet.START, 0
+                )
+                set.connect(
+                    R.id.cart_view, ConstraintSet.TOP,
+                    R.id.folding_feature, ConstraintSet.BOTTOM, 0
+                )
             }
 
             // Set the view to visible and apply constraints
